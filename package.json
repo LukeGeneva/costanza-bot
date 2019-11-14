@@ -1,0 +1,14 @@
+{
+  "name": "constanza-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Luke Geneva",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
