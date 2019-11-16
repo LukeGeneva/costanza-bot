@@ -1,5 +1,3 @@
-const tokenize = text => {
-  return text.split(/\b/).filter(word => word !== ' ');
-};
+const tokenize = text => text.match(/[\w']+|[.,?!;]/g);
 
 module.exports = tokenize;
