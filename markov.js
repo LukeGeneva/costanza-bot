@@ -1,15 +1,15 @@
-const markov = (tokens, model = {}, previous) => {
+const markov = (tokens, model = {}, prevToken) => {
   if (tokens.length === 0) {
-    model[previous].ends += 1;
+    model[prevToken].ends += 1;
     return model;
   }
   const [token] = tokens;
   model[token] = model[token] || { starts: 0, ends: 0, followers: {} };
-  if (!!previous) {
-    model[previous].followers[token] = model[previous].followers[token] || 0;
-    model[previous].followers[token] += 1;
+  if (!!prevToken) {
+    model[prevToken].followers[token] = model[prevToken].followers[token] || 0;
+    model[prevToken].followers[token] += 1;
   }
-  if (!previous) model[token].starts += 1;
+  if (!prevToken) model[token].starts += 1;
   return markov(tokens.slice(1), model, token);
 };
 
