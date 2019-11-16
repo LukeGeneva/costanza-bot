@@ -1,12 +1,27 @@
 const markov = require('./markov');
 
-test('creates an inital data structure', () => {
-  const model = markov().feed('A');
-  expect(model.data).toEqual({ A: { startPct: 1 } });
+test('builds a basic model', () => {
+  const tokens = ['Hello', 'world'];
+  const model = markov(tokens, {});
+  expect(model).toEqual({
+    Hello: {
+      starts: 1,
+      followers: { world: 1 }
+    },
+    world: {
+      starts: 0,
+      followers: {}
+    }
+  });
 });
 
-test('updates entry count', () => {
-  const model = markov('A');
-  const model2 = markov('B', model);
-  expect(model2.entries).toBe(2);
+test('handles repeat words', () => {
+  const tokens = ['A', 'A'];
+  const model = markov(tokens, {});
+  expect(model).toEqual({
+    A: {
+      starts: 1,
+      followers: { A: 1 }
+    }
+  });
 });
