@@ -1,3 +1,3 @@
-const tokenize = text => text.match(/[\w']+|[.,?!;]/g);
+const tokenize = (text) => text.match(/[\w']+|[.,?!;]/g) || [];
 
 module.exports = tokenize;

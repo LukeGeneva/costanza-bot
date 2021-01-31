@@ -1,5 +1,6 @@
 const markov = (tokens, model = {}, prevToken) => {
   if (tokens.length === 0) {
+    if (!prevToken) return model;
     model[prevToken].ends += 1;
     return model;
   }

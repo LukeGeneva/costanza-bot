@@ -7,13 +7,13 @@ test('builds a basic model', () => {
     Hello: {
       starts: 1,
       ends: 0,
-      followers: { world: 1 }
+      followers: { world: 1 },
     },
     world: {
       starts: 0,
       ends: 1,
-      followers: {}
-    }
+      followers: {},
+    },
   });
 });
 
@@ -24,7 +24,13 @@ test('handles repeat words', () => {
     A: {
       starts: 1,
       ends: 1,
-      followers: { A: 1 }
-    }
+      followers: { A: 1 },
+    },
   });
+});
+
+test('hadles empty token set', () => {
+  const tokens = [];
+  const model = markov(tokens, {});
+  expect(model).toEqual({});
 });
