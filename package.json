@@ -17,7 +17,7 @@
     "request": "^2.88.2"
   },
   "dependencies": {
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "node-fetch": "^2.6.1"
   }
 }
